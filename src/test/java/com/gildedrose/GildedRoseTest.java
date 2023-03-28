@@ -3,6 +3,8 @@ package com.gildedrose;
 import org.approvaltests.combinations.CombinationApprovals;
 import org.junit.jupiter.api.Test;
 
+import static com.gildedrose.ItemFactory.createItem;
+
 class GildedRoseTest {
 
     @Test
@@ -16,7 +18,7 @@ class GildedRoseTest {
     }
 
     private String update(String name, int sellIn, int quality) {
-        Item item = new Item(name, sellIn, quality);
+        Item item = createItem(name, sellIn, quality);
         GildedRose app = new GildedRose(new Item[]{item});
         app.updateAll();
         return app.items[0].toString();

@@ -19,3 +19,7 @@ Le propriétaire d'une boutique peu ordinaire a fait appel à vous pour ajouter 
 ## Etape 2 : refactoring en switch sur le nom de chaque item
 * Lift up conditional
 * Let IDE guide you
+
+## Etape 3 : refactoring en subclasses de Item
+* Factory
+* Polymorphisme
