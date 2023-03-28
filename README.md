@@ -15,3 +15,7 @@ Le propriétaire d'une boutique peu ordinaire a fait appel à vous pour ajouter 
 * Launching tests with coverage
 * Approval tests
 * Mutation tests
+
+## Etape 2 : refactoring en switch sur le nom de chaque item
+* Lift up conditional
+* Let IDE guide you
