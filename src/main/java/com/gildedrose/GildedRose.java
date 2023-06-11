@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import java.util.Arrays;
+
 class GildedRose {
     Item[] items;
 
@@ -8,65 +10,8 @@ class GildedRose {
     }
 
     public void updateAll() {
-        for (Item item : items) {
-            update(item);
-        }
+        Arrays.stream(items)
+            .forEach(item -> new ItemUpdateContext(item.name).update(item));
     }
 
-    private void update(Item item) {
-        switch (item.name) {
-            case "Aged Brie":
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
-
-                item.sellIn = item.sellIn - 1;
-
-                if (item.sellIn < 0) {
-                    if (item.quality < 50) {
-                        item.quality = item.quality + 1;
-                    }
-                }
-                break;
-            case "Backstage passes to a TAFKAL80ETC concert":
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-
-                    if (item.sellIn < 11) {
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
-                        }
-                    }
-
-                    if (item.sellIn < 6) {
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
-                        }
-                    }
-                }
-
-                item.sellIn = item.sellIn - 1;
-
-                if (item.sellIn < 0) {
-                    item.quality = 0;
-                }
-                break;
-            case "Sulfuras, Hand of Ragnaros":
-
-                break;
-            default:
-                if (item.quality > 0) {
-                    item.quality = item.quality - 1;
-                }
-
-                item.sellIn = item.sellIn - 1;
-
-                if (item.sellIn < 0) {
-                    if (item.quality > 0) {
-                        item.quality = item.quality - 1;
-                    }
-                }
-                break;
-        }
-    }
 }
